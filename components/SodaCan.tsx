@@ -9,7 +9,7 @@ useGLTF.preload("/Soda-can.gltf");
 const flavorTextures = {
   sereneGreen: "/labels/calora-green.png",
   blackLotus: "/labels/calora-black.png",
-  blissfullBerry: "/labels/calora-pink.png",
+  blissfullBerry: "/labels/calora-red.png",
 };
 
 const metalMaterial = new THREE.MeshStandardMaterial({

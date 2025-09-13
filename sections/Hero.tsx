@@ -14,7 +14,6 @@ import { Group } from "three";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function Hero() {
-
   // const isDesktop = useMediaQuery({ minWidth: 768 });
   const FLOATING_SPEED = 1.5;
 
@@ -154,10 +153,14 @@ export default function Hero() {
         .to(can2Ref.current.rotation, { z: 0 }, 0)
         .to(can3Ref.current.position, { x: -0.3, y: 0, z: -1 }, 0)
         .to(can3Ref.current.rotation, { z: 0.5 }, 0)
-        .to(groupRef.current?.position, { x: 1, y: -0.5, ease: 'sine.inOut' }, 0);
+        .to(
+          groupRef.current?.position,
+          { x: 1, y: -0.5, ease: "sine.inOut" },
+          0
+        );
     };
 
-    if(window.innerWidth >= 768) {
+    if (window.innerWidth >= 768) {
       setup3DAnimations();
     }
   }, []);
@@ -173,7 +176,7 @@ export default function Hero() {
               rotationIntensity={0.5}
               floatingRange={[-0.1, 0.1]}
             >
-              <SodaCan ref={can1Ref} flavor="blackLotus" />
+              <SodaCan ref={can1Ref} flavor="blissfullBerry" />
             </Float>
           </group>
 
@@ -194,7 +197,7 @@ export default function Hero() {
             rotationIntensity={0.5}
             floatingRange={[-0.1, 0.1]}
           >
-            <SodaCan ref={can3Ref} flavor="blissfullBerry" />
+            <SodaCan ref={can3Ref} flavor="blackLotus" />
           </Float>
         </group>
         {/* <OrbitControls /> */}
@@ -238,9 +241,9 @@ export default function Hero() {
                 </span>
               </h2>
               <p className="hero2-body w-full md:w-[95%] mt-5 text-lg max-md:text-center text-sky-950/80">
-                Our tea is crafted with handpicked organic leaves and soothing
-                natural herbs. We never use artificial flavors or preservatives.
-                Explore all three blends and discover your moment of calm!
+                Our soda is powered with bold flavors and real ingredients. No
+                artificial junk, no compromises. Try all three variants and
+                unleash your spark!
               </p>
             </div>
           </div>
