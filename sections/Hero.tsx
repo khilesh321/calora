@@ -20,19 +20,19 @@ export default function Hero() {
         <button className="mt-6 uppercase bg-orange-600 hover:bg-orange-700 transition-colors duration-200 cursor-pointer text-white text-xl py-4 px-8 rounded-xl font-semibold tracking-wider">Shop Now</button>
       </section>
 
-      <section className="min-h-screen w-full flex justify-between max-sm:flex-col">
-        <div className="w-1/3 flex flex-col justify-center items-center">
-          <div className=" pl-15 text-sky-950">
-            <h2 className="uppercase text-8xl font-black">
+      <section className="h-[70vh] md:min-h-screen w-full flex justify-between max-sm:flex-col">
+        <div className="md:w-1/3 flex flex-col justify-center items-center">
+          <div className="md:pl-15 text-sky-950">
+            <h2 className="uppercase text-7xl max-md:text-center md:text-8xl font-black">
               <span className="block">Try All</span>
               <span className="block">Three</span>
               <span className="block">Flavors</span>
             </h2>
-            <p className="w-[95%] mt-5 text-lg text-sky-950/80">Our tea is crafted with handpicked organic leaves and soothing natural herbs. We never use artificial flavors or preservatives. Explore all three blends and discover your moment of calm!</p>
+            <p className="w-full md:w-[95%] mt-5 text-lg max-md:text-center text-sky-950/80">Our tea is crafted with handpicked organic leaves and soothing natural herbs. We never use artificial flavors or preservatives. Explore all three blends and discover your moment of calm!</p>
           </div>
         </div>
 
-        <div className=' w-2/3 flex items-center justify-center'>
+        <div className='w-full md:w-2/3 md:hidden mb-5 flex items-center justify-center'>
           <Image
             src="/images/hero-bottles.png"
             alt="Hero Bottles"
