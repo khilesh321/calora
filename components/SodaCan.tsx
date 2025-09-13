@@ -78,3 +78,5 @@ export const SodaCan = forwardRef<THREE.Group, SodaCanProps>(
     );
   }
 );
+
+SodaCan.displayName = "FloatingCan";
