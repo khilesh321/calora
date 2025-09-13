@@ -42,7 +42,6 @@ export default function Hero() {
         start: 'top top',
         end: 'bottom bottom',
         scrub: 2.5,
-        markers: true
       }
     })
 
