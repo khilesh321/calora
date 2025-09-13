@@ -2,5 +2,37 @@
 @import "tailwindcss";
 
 body {
+  background-color: #FDE047;
+  overflow-x: hidden;
   font-family: 'Fredoka', sans-serif;
+}
+
+.font-fredoka {
+  font-family: 'Fredoka', sans-serif;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 6s linear infinite;
 }

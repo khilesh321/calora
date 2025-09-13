@@ -1,9 +1,11 @@
-import Image from "next/image";
+import Hero from "@/sections/Hero";
 
 export default function Home() {
   return (
-    <section>
-      <h1 className="text-4xl font-semibold">Hello</h1>
-    </section>
+    <div>
+      <Hero />
+      <div  className="min-h-screen bg-red-300"/>
+      <div  className="min-h-screen bg-red-400"/>
+    </div>
   );
 }
