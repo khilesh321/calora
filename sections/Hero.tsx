@@ -256,7 +256,7 @@ export default function Hero() {
 
           <div className="w-full md:w-2/3 md:hidden max-sm:mt-15 max-sm:mb-5 flex items-center justify-center">
             <Image
-              src="/images/hero-bottles.png"
+              src="/images/calora-bottles.png"
               alt="Hero Bottles"
               width={1200}
               height={800}
