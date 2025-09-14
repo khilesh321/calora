@@ -144,7 +144,10 @@ export default function Hero() {
           end: "bottom bottom",
           scrub: 1.5,
           onUpdate: () => {
-            gsap.set('.hero-scene', { top: window.scrollY });
+            const heroScene = document.querySelector('.hero-scene') as HTMLElement;
+            if(window.scrollY < heroScene.offsetHeight + (heroScene.offsetHeight / 4)) {
+              gsap.set(heroScene, { top: window.scrollY });
+            }
           }
         },
       });

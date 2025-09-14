@@ -17,6 +17,7 @@ export default function SkyDive() {
           <Float>
             <SodaCan ref={canref} />
           </Float>
+          <ambientLight intensity={0.5} color="#ffffff" />
         </group>
       </View>
     </section>
