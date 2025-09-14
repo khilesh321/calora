@@ -143,6 +143,9 @@ export default function Hero() {
           start: "top top",
           end: "bottom bottom",
           scrub: 1.5,
+          onUpdate: () => {
+            gsap.set('.hero-scene', { top: window.scrollY });
+          }
         },
       });
 
@@ -155,7 +158,7 @@ export default function Hero() {
         .to(can3Ref.current.rotation, { z: 0.5 }, 0)
         .to(
           groupRef.current?.position,
-          { x: 1, y: -0.5, ease: "sine.inOut" },
+          { x: 1, y: 0, ease: "sine.inOut" },
           0
         );
     };
@@ -167,7 +170,7 @@ export default function Hero() {
 
   return (
     <>
-      <View className="hero-scene h-screen w-screen pointer-events-none sticky -mt-[100vh] top-0 z-50 hidden md:block">
+      <View className="hero-scene h-screen w-screen pointer-events-none absolute top-0 z-50 hidden md:block">
         <group ref={groupRef}>
           <group ref={can1GroupRef}>
             <Float
