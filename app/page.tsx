@@ -9,9 +9,9 @@ export default function Home() {
       <ReactLenis root options={{ lerp: 0.07 }} />
       <ViewCanvas />
       <Hero />
-      <SkyDive />
-      <div  className="min-h-screen bg-red-300"/>
-      <div  className="min-h-screen bg-red-400"/>
+      <SkyDive sentence={'Drink Different Drink Calora'} />
+      <div className="min-h-screen bg-red-300" />
+      <div className="min-h-screen bg-red-400" />
     </div>
   );
 }
