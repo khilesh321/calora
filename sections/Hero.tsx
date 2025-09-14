@@ -8,13 +8,11 @@ import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import Image from "next/image";
 import { useRef, useLayoutEffect } from "react";
-import { useMediaQuery } from "react-responsive";
 import { Group } from "three";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function Hero() {
-  // const isDesktop = useMediaQuery({ minWidth: 768 });
   const FLOATING_SPEED = 1.5;
 
   const can1Ref = useRef<Group>(null);
@@ -144,11 +142,16 @@ export default function Hero() {
           end: "bottom bottom",
           scrub: 1.5,
           onUpdate: () => {
-            const heroScene = document.querySelector('.hero-scene') as HTMLElement;
-            if(window.scrollY < heroScene.offsetHeight + (heroScene.offsetHeight / 4)) {
+            const heroScene = document.querySelector(
+              ".hero-scene"
+            ) as HTMLElement;
+            if (
+              window.scrollY <
+              heroScene.offsetHeight + heroScene.offsetHeight / 4
+            ) {
               gsap.set(heroScene, { top: window.scrollY });
             }
-          }
+          },
         },
       });
 
@@ -159,11 +162,7 @@ export default function Hero() {
         .to(can2Ref.current.rotation, { z: 0 }, 0)
         .to(can3Ref.current.position, { x: -0.3, y: 0, z: -1 }, 0)
         .to(can3Ref.current.rotation, { z: 0.5 }, 0)
-        .to(
-          groupRef.current?.position,
-          { x: 1, y: 0, ease: "sine.inOut" },
-          0
-        );
+        .to(groupRef.current?.position, { x: 1, y: 0, ease: "sine.inOut" }, 0);
     };
 
     if (window.innerWidth >= 768) {

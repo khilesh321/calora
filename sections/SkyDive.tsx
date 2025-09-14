@@ -94,7 +94,7 @@ export default function SkyDive({
           pin: true,
           start: "top top",
           end: "+=2000",
-          scrub: 1.5,
+          scrub: 2.5,
         },
       });
 
