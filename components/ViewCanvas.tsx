@@ -7,7 +7,6 @@ export default function ViewCanvas() {
   return (
     <>
       <Canvas
-        className="hidden md:block"
         style={{
           position: "fixed",
           top: 0,
@@ -26,9 +25,7 @@ export default function ViewCanvas() {
           <View.Port />
         </Suspense>
       </Canvas>
-      <div className="hidden md:block">
-        <Loader />
-      </div>
+      <Loader />
     </>
   );
 }
