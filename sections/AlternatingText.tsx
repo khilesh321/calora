@@ -3,11 +3,11 @@ import { SodaCan } from "@/components/SodaCan";
 import { useGSAP } from "@gsap/react";
 import { Environment, Float, View } from "@react-three/drei";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 import { useRef } from "react";
 import { Group } from "three";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function AlternatingText() {
   const canGroupRef = useRef<Group>(null);
@@ -15,6 +15,21 @@ export default function AlternatingText() {
     typeof window !== "undefined" ? window.innerWidth >= 768 : false;
 
   useGSAP(() => {
+    const titles = gsap.utils.toArray(".alternating-text-container h1");
+    titles.forEach((title: any) => {
+      const split = new SplitText(title, { type: "chars", charsClass: "char" });
+      split.chars.forEach((char) => {
+        if (!char.querySelector("span")) {
+          char.innerHTML = `<span>${char.textContent}</span>`;
+        }
+      });
+    });
+
+    const paraSplit = new SplitText(".alternating-text-container p", {
+      type: "lines",
+      linesClass: "split-line",
+    });
+
     function setup() {
       if (!canGroupRef.current) {
         requestAnimationFrame(setup);
@@ -92,6 +107,51 @@ export default function AlternatingText() {
           },
           0
         );
+
+      [
+        "alternating-text-item1",
+        "alternating-text-item2",
+        "alternating-text-item3",
+      ].forEach((itemClass) => {
+        const chars = gsap.utils.toArray(`.${itemClass} .char span`);
+        chars.forEach((char: any, index) => {
+          gsap.from(char, {
+            xPercent: 100,
+            duration: 0.5,
+            delay: index * 0.05,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: `.${itemClass}`,
+              start: "center 80%",
+              end: "bottom center",
+              toggleActions: "play none none reverse",
+              markers: true,
+            },
+          });
+        });
+
+        const paragraphLines = gsap.utils.toArray(
+          `.${itemClass} p .split-line`
+        );
+
+        const paragraphTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: `.${itemClass}`,
+            start: "center 80%",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        paragraphTl.from(paragraphLines, {
+          yPercent: 100,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          stagger: 0.1,
+          delay: 0.3,
+        });
+      });
     }
 
     setup();

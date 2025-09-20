@@ -36,3 +36,15 @@ body {
 .animate-spin-slow {
   animation: spin 6s linear infinite;
 }
+
+.char {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.char span {
+  /* transform: translateX(100%); */
+  display: inline-block;
+  will-change: transform;
+}
