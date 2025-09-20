@@ -2,10 +2,14 @@
 import { ArrowIcon } from "@/components/ArrowIcon";
 import { SodaCan, SodaCanProps } from "@/components/SodaCan";
 import { WavyCircles } from "@/components/WavyCircles";
+import { useGSAP } from "@gsap/react";
 import { Center, Environment, Float, View } from "@react-three/drei";
 import gsap from "gsap";
+import { SplitText } from "gsap/all";
 import { useRef, useState, useEffect } from "react";
 import { Group } from "three";
+
+gsap.registerPlugin(SplitText);
 
 const SPINS_ON_CHANGE = 8;
 const FLAVORS: {
@@ -90,13 +94,51 @@ export default function Carousel() {
       .to(".text-wrapper", { duration: 0.2, y: 0, opacity: 1 }, 0.7);
   }
 
+  useGSAP(() => {
+    const split = new SplitText(".carousel-heading", {
+      type: "chars",
+      charsClass: "char",
+    });
+    split.chars.forEach((char: any, index) => {
+      if (!char.querySelector("span")) {
+        char.innerHTML = `<span>${char.textContent}</span>`;
+      }
+    });
+
+    gsap.from('.carousel-heading span', {
+      xPercent: 100,
+      duration: 0.25,
+      stagger: 0.05,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".carousel",
+        start: "top+=2000 center",
+        end: "bottom+=2000 center",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from('.carousel-desc', {
+      y: 20,
+      opacity: 0,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: ".carousel-desc",
+        start: "top+=1600 center",
+        end: "bottom+=1700 center",
+        toggleActions: "play none none reverse",
+        markers: true,
+      },
+    })
+  });
+
   return (
     <section className="carousel relative grid h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden bg-white py-12 text-white">
       <div className="background pointer-events-none absolute inset-0 bg-[#710523] opacity-50" />
 
       <WavyCircles className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#710523]" />
 
-      <h2 className="relative text-center text-5xl font-semibold">
+      <h2 className="relative carousel-heading text-center text-5xl font-semibold">
         Choose Your Flavor
       </h2>
 
@@ -141,7 +183,7 @@ export default function Carousel() {
         <div className="text-wrapper text-4xl font-medium">
           <p>{FLAVORS[currentFlavorIndex].name}</p>
         </div>
-        <div className="mt-2 text-2xl font-normal opacity-90">
+        <div className="mt-2 carousel-desc text-2xl font-normal opacity-90">
           12 cans - Rs 360
         </div>
       </div>

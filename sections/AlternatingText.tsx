@@ -125,7 +125,6 @@ export default function AlternatingText() {
               start: "center 80%",
               end: "bottom center",
               toggleActions: "play none none reverse",
-              markers: true,
             },
           });
         });
