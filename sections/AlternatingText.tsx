@@ -63,7 +63,7 @@ export default function AlternatingText() {
       tl1.to(
         canGroupRef.current.position,
         {
-          x: -1,
+          x: isDesktop ? -1 : 0,
           duration: 1,
           ease: "none",
         },
@@ -100,7 +100,7 @@ export default function AlternatingText() {
         .to(
           canGroupRef.current.position,
           {
-            x: 1,
+            x: isDesktop ? 1 : 0,
             duration: 1,
             ease: "none",
           },
@@ -178,7 +178,9 @@ export default function AlternatingText() {
           <group
             ref={canGroupRef}
             position-x={isDesktop ? 1 : 0}
-            rotation-y={-0.55}
+            position-z={isDesktop ? 0 : 1}
+            rotation-y={isDesktop ? -0.55 : 0}
+            scale={isDesktop ? 1 : 0.8}
           >
             <Float
               floatIntensity={2}
@@ -192,35 +194,35 @@ export default function AlternatingText() {
           </group>
         </View>
 
-        <div className="alternating-text-item1 h-screen md:w-[80%] md:mx-auto flex flex-col justify-center">
-          <div>
-            <h1 className="text-6xl text-black/90 font-semibold mb-5">
+        <div className="alternating-text-item1 h-screen w-full px-4 md:w-[80%] md:mx-auto flex flex-col justify-center">
+          <div className="max-md:text-center max-md:mt-32 max-md:backdrop-blur-sm max-md:bg-white/20 max-md:rounded-xl max-md:p-6 max-md:mx-4">
+            <h1 className="text-4xl md:text-6xl text-black/90 font-semibold mb-3 md:mb-5">
               Gut Care
             </h1>
-            <p className="w-[40%] text-xl text-black/80">
+            <p className="w-full md:w-[40%] text-lg md:text-xl text-black/80 max-md:mx-auto max-md:max-w-xs">
               Packed with prebiotics and 1 billion probiotics, Calora supports
               smooth digestion and reduces bloating — keeping your gut light and
               healthy with every sip.
             </p>
           </div>
         </div>
-        <div className="alternating-text-item2 h-screen md:w-[80%] md:mx-auto flex flex-col justify-center">
-          <div className="pl-[60%]">
-            <h1 className="text-6xl text-black/90 font-semibold mb-5">
+        <div className="alternating-text-item2 h-screen w-full px-4 md:w-[80%] md:mx-auto flex flex-col justify-center">
+          <div className="max-md:text-center max-md:mt-32 md:pl-[60%] max-md:backdrop-blur-sm max-md:bg-white/20 max-md:rounded-xl max-md:p-6 max-md:mx-4">
+            <h1 className="text-4xl md:text-6xl text-black/90 font-semibold mb-3 md:mb-5">
               Zero Guilt
             </h1>
-            <p className="w-[90%] text-xl text-black/80">
+            <p className="w-full md:w-[90%] text-lg md:text-xl text-black/80 max-md:mx-auto max-md:max-w-xs">
               With 0 calories and no caffeine, Calora delivers bold, refreshing
               taste without compromise. Sip freely, anytime, anywhere.
             </p>
           </div>
         </div>
-        <div className="alternating-text-item3 h-screen md:w-[80%] md:mx-auto flex flex-col justify-center">
-          <div>
-            <h1 className="text-6xl text-black/90 font-semibold mb-5">
+        <div className="alternating-text-item3 h-screen w-full px-4 md:w-[80%] md:mx-auto flex flex-col justify-center">
+          <div className="max-md:text-center max-md:mt-32 max-md:backdrop-blur-sm max-md:bg-white/20 max-md:rounded-xl max-md:p-6 max-md:mx-4">
+            <h1 className="text-4xl md:text-6xl text-black/90 font-semibold mb-3 md:mb-5">
               All Natural
             </h1>
-            <p className="w-[40%] text-xl text-black/80">
+            <p className="w-full md:w-[40%] text-lg md:text-xl text-black/80 max-md:mx-auto max-md:max-w-xs">
               Made only with the finest natural ingredients, Calora contains no
               artificial sweeteners or flavors — just clean, crisp refreshment
               you can trust.
