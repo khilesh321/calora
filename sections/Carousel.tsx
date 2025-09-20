@@ -137,7 +137,7 @@ export default function Carousel() {
 
       <WavyCircles className="absolute left-1/2 top-1/2 h-[120vmin] -translate-x-1/2 -translate-y-1/2 text-[#710523]" />
 
-      <h2 className="relative carousel-heading text-center text-5xl font-semibold">
+      <h2 className="relative carousel-heading text-center text-4xl sm:text-5xl font-semibold">
         Choose Your Flavor
       </h2>
 

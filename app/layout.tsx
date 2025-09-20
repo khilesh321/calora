@@ -7,6 +7,7 @@ const alpino = localFont({
   display: "swap",
   weight: "100 900",
   variable: "--font-alpino",
+  fallback: ["system-ui", "arial"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased ${alpino.variable}`}>
+      <body className={`antialiased ${alpino.variable}`} suppressHydrationWarning>
         {children}
       </body>
     </html>
