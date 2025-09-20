@@ -17,7 +17,7 @@ const FLAVORS: {
   color: string;
   name: string;
 }[] = [
-  { flavor: "blissfullBerry", color: "#690B3D", name: "Blissfull Berry" },
+  { flavor: "blissfullBerry", color: "#8B0000", name: "Blissfull Berry" },
   { flavor: "blackLotus", color: "#222", name: "Black Lotus" },
   { flavor: "sereneGreen", color: "#164405", name: "Serene Green" },
 ];
@@ -127,7 +127,6 @@ export default function Carousel() {
         start: "top+=1600 center",
         end: "bottom+=1700 center",
         toggleActions: "play none none reverse",
-        markers: true,
       },
     })
   });
