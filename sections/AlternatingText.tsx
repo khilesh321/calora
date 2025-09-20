@@ -69,15 +69,23 @@ export default function AlternatingText() {
         },
         0
       );
-      tl1.to(
-        canGroupRef.current.rotation,
-        {
-          y: Math.PI * 2,
-          duration: 1,
-          ease: "none",
-        },
-        0
-      );
+      tl1
+        .to(
+          canGroupRef.current.rotation,
+          {
+            y: Math.PI * 2,
+            duration: 1,
+            ease: "none",
+          },
+          0
+        )
+        .to(
+          "body",
+          {
+            backgroundColor: "#E9CFF6",
+          },
+          0
+        );
 
       const tl2 = gsap.timeline({
         scrollTrigger: {
@@ -104,6 +112,13 @@ export default function AlternatingText() {
             y: Math.PI / 2 + 0.5,
             duration: 1,
             ease: "none",
+          },
+          0
+        )
+        .to(
+          "body",
+          {
+            backgroundColor: "#CBEF9A",
           },
           0
         );
