@@ -7,7 +7,6 @@ export default function ViewCanvas() {
   return (
     <>
       <Canvas
-        className="hidden md:block"
         style={{
           position: "fixed",
           top: 0,
