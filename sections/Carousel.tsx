@@ -148,7 +148,7 @@ export default function Carousel() {
           label="Previous Flavor"
         />
 
-        <View className="aspect-square h-[70vmin] min-h-40">
+        <View className="aspect-square h-[75vmin] sm:h-[70vmin] min-h-40">
           <Center position={[0, 0, 1.5]}>
             <Float
               floatIntensity={0.3}
