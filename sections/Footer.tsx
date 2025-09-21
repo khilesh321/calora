@@ -1,5 +1,4 @@
 import Spinner from "@/components/Spinner";
-import React from "react";
 
 export default function Footer() {
   return (
@@ -12,12 +11,12 @@ export default function Footer() {
           <span className="inline-block max-md:text-[40vw]">you </span>
         </div>
         <div className="text-[32vw]">Smile</div>
-        <div className="relative top-10 h-[40vw] sm:h-[20vw] overflow-hidden">
+        <div className="relative top-27 sm:top-10 h-[40vw] sm:h-[20vw] overflow-hidden">
           <div className="absolute left-1/2 -translate-x-1/2 w-[80vw] sm:w-[40vw]">
             <Spinner />
           </div>
         </div>
-        <div className="h-[64vh] sm:hidden"></div>
+        {/* <div className="h-[64vh] sm:hidden"></div> */}
       </h2>
     </section>
   );
