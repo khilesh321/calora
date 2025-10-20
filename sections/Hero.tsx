@@ -256,7 +256,7 @@ export default function Hero() {
           <div className="w-full md:w-2/3 md:hidden max-sm:mt-15 max-sm:mb-5 flex items-center justify-center">
             <Image
               src="/images/calora-bottles.png"
-              alt="Hero Bottles"
+              alt="Calora premium natural soda bottles - Blissfull Berry, Black Lotus, and Serene Green flavors"
               width={1200}
               height={800}
               className="w-full h-auto object-cover"
