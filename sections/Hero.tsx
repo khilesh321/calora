@@ -13,7 +13,7 @@ import { Group } from "three";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function Hero() {
-  const FLOATING_SPEED = 1.5;
+  const FLOATING_SPEED = 1.5; 
 
   const can1Ref = useRef<Group>(null);
   const can2Ref = useRef<Group>(null);
