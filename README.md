@@ -1,76 +1,213 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Calora
 
-## SEO Optimization
+Calora is a premium wellness beverage brand landing page built with Next.js, TypeScript, and modern 3D web experiences. The project presents a product-focused storytelling experience for a natural soda brand centered on gut-friendly probiotics, zero-calorie ingredients, and refreshing flavor profiles.
 
-This project includes comprehensive SEO optimizations:
+## Overview
 
-### ✅ Implemented Features
-- **Meta Tags**: Complete Open Graph, Twitter Cards, and standard meta tags
-- **Structured Data**: JSON-LD schema for Organization and Products
-- **Sitemap**: Auto-generated XML sitemap (`/sitemap.xml`)
-- **Robots.txt**: Search engine crawling instructions (`/robots.txt`)
-- **PWA Manifest**: Web app manifest for better mobile experience
-- **Image Optimization**: Next.js Image component with proper alt texts
-- **Performance**: Optimized fonts, lazy loading, and Core Web Vitals
+This repository contains a polished single-page marketing website for Calora, designed to feel premium, playful, and health-forward. The experience combines:
 
-### 🔧 Configuration Files
-- `app/layout.tsx` - Global metadata and structured data
-- `app/page.tsx` - Page-specific metadata
-- `app/sitemap.ts` - Dynamic sitemap generation
-- `app/robots.ts` - Search engine instructions
-- `public/manifest.json` - PWA configuration
+- immersive hero storytelling and motion-driven brand sections
+- interactive 3D product visuals using React Three Fiber and Drei
+- animated flavor selection with GSAP-driven transitions
+- responsive layout optimized for mobile and desktop
+- SEO configuration for search indexing and social sharing
 
-### 📊 SEO Checklist
-- [x] Title tags and meta descriptions
-- [x] Open Graph tags for social sharing
-- [x] Twitter Card meta tags
-- [x] Structured data (Schema.org)
-- [x] XML sitemap
-- [x] Robots.txt
-- [x] Mobile-friendly design
-- [x] Fast loading times
-- [x] Semantic HTML structure
-- [x] Alt text for images
+The app is intentionally crafted as a modern beverage brand landing page with a premium visual style, using bold typography, rich gradients, and animated motion to emphasize the product identity.
 
-### 🚀 Next Steps for Production
-1. Update domain in metadata (`https://calora.com`)
-2. Add Google Analytics tracking
-3. Submit sitemap to Google Search Console
-4. Set up Google Analytics and Search Console
-5. Monitor Core Web Vitals
-6. Add more structured data as content grows
+## Brand Positioning
 
-## Getting Started
+Calora is positioned as a natural soda alternative for wellness-conscious consumers. The messaging highlights:
 
-First, run the development server:
+- gut-friendly probiotics
+- zero calories
+- natural ingredients
+- balanced flavor profiles
+- clean, lifestyle-driven branding
+
+The site centers around three flavor variants:
+
+- Blissfull Berry
+- Black Lotus
+- Serene Green
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- GSAP
+- @react-three/fiber
+- @react-three/drei
+- Three.js
+- Lenis scroll library
+- ESLint
+
+## Key Features
+
+### 3D Product Experience
+The application uses Three.js-based rendering to showcase product cans in a cinematic environment. This includes floating product positioning, textured environment lighting, and animated motion to create a premium lifestyle product feel.
+
+### Scroll-Driven Storytelling
+The landing page uses GSAP timelines and ScrollTrigger patterns to animate transitions across sections, guiding visitors through a brand narrative from hero messaging to flavor exploration.
+
+### Interactive Flavor Carousel
+Users can switch between Calora's three flavors via a custom interactive carousel. The motion system updates the surrounding color palette, product state, and content dynamically.
+
+### Responsive Design
+The layout is designed to adapt across screen sizes, ensuring a strong experience on both mobile and large desktop displays while preserving the immersive branding.
+
+### SEO and Metadata
+The app includes metadata, Open Graph cards, Twitter card setup, robots configuration, and a sitemap to support discoverability and brand presentation in search and social channels.
+
+## Repository Structure
+
+```text
+calora/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+├── components/
+│   ├── ArrowIcon.tsx
+│   ├── Bubbles.tsx
+│   ├── Calora.tsx
+│   ├── SodaCan.tsx
+│   ├── Spinner.tsx
+│   ├── ThreeText.tsx
+│   ├── ViewCanvas.tsx
+│   └── WavyCircles.tsx
+├── public/
+│   ├── fonts/
+│   ├── hdr/
+│   ├── images/
+│   ├── labels/
+│   ├── calora-favicon.svg
+│   ├── calora-logo.svg
+│   ├── Soda-can.bin
+│   ├── Soda-can.gltf
+│   ├── manifest.json
+│   └── ...
+├── sections/
+│   ├── AlternatingText.tsx
+│   ├── Carousel.tsx
+│   ├── Footer.tsx
+│   ├── Hero.tsx
+│   └── SkyDive.tsx
+├── .gitignore
+├── eslint.config.mjs
+├── next.config.ts
+├── package.json
+├── package-lock.json
+├── pnpm-lock.yaml
+├── postcss.config.mjs
+├── tsconfig.json
+└── README.md
+```
+
+## Core Application Flow
+
+### App Entry
+The entry point is `app/page.tsx`, which assembles the homepage sections:
+
+- `Hero`
+- `SkyDive`
+- `Carousel`
+- `AlternatingText`
+- `Footer`
+
+It also includes global smooth scrolling via `lenis/react` and renders the `ViewCanvas` background component.
+
+### Root Layout and SEO
+`app/layout.tsx` defines the root metadata, brand information, Open Graph tags, Twitter metadata, manifest, canonical URL, and structured JSON-LD data for the company and its product catalog.
+
+### Styling
+`app/globals.css` includes global theme styling, typography setup, and custom animation helpers used across the site.
+
+### Section Components
+The page is broken into focused sections in the `sections/` directory:
+
+- `Hero.tsx`: hero branding, product composition, dramatic copy, and motion behavior
+- `Carousel.tsx`: interactive flavor selector and 3D can viewer
+- `Footer.tsx`: final brand statement and animated closing section
+- `AlternatingText.tsx`: additional text-driven visual transitions
+- `SkyDive.tsx`: headline or brand statement section
+
+## Scripts
+
+Use the following commands from the project root:
+
+```bash
+npm install
+npm run dev
+```
+
+Available scripts:
+
+```bash
+npm run dev     # start the Next.js development server
+npm run build   # create a production build
+npm run start   # run the production server
+npm run lint    # run ESLint checks
+```
+
+## Local Development
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the app in development mode:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open the local site in your browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production Deployment
 
-## Learn More
+This project is configured for deployment on Vercel with Next.js and is aligned with the standard modern deployment workflow for Next.js applications.
 
-To learn more about Next.js, take a look at the following resources:
+Recommended deployment path:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Connect the repository to Vercel
+- Import the project using the Next.js preset
+- Set any required environment variables if introduced later
+- Deploy and verify metadata, SEO output, and page rendering
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## SEO and Metadata Notes
 
-## Deploy on Vercel
+The application includes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- branded metadata in `app/layout.tsx`
+- social preview configuration for Open Graph and Twitter
+- sitemap generation at `app/sitemap.ts`
+- robots configuration in `app/robots.ts`
+- manifest setup in `public/manifest.json`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This helps support content discoverability and improves how the brand appears when shared online.
+
+## Notes
+
+- The project uses the `@/*` import alias commonly configured for Next.js apps.
+- 3D assets such as the can model and environment HDR files are stored in the `public/` directory.
+- The project is primarily a marketing landing page rather than a multi-page commerce application.
+
+## License
+
+This project currently does not declare a license in the repository metadata. If you intend to publish or distribute the project publicly, consider adding an appropriate license file such as MIT.
+
+## Summary
+
+Calora is a premium beverage branding experience built as a high-impact, motion-rich marketing site. The project combines modern frontend development, interactive 3D experiences, and brand storytelling to present a wellness-focused soda product in a compelling, memorable way.
+
+For future expansion, the project is well positioned for additional pages such as product detail views, an about section, a shop experience, or a full ecommerce flow.
